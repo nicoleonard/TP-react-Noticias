@@ -1,4 +1,5 @@
 :root {
+  width: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -19,7 +20,7 @@ body {
   min-height: 100vh;
   
   background-color: #ffffffee;
-  background-image: linear-gradient(0deg, #e2dde1 50%, #c3f9f9 60%, #ffffffee 100%);
+  background-image: linear-gradient(0deg, #ffffffee 70%, #659191ec 80%, #ffffffee 100%);
   
 }
 
