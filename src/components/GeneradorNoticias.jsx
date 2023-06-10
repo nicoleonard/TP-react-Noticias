@@ -9,13 +9,15 @@ const GeneradorNoticias = () => {
 
     useEffect(() => {
         localStorage.setItem("categoriaElegida", JSON.stringify(categoria));
+
     }, [categoria])
 
     const manejadorSelector = (evento) => {
         setCategoria(evento.target.value)
     }
     return(
-        <Form className='m-2 p-2 border border-2 border-dark-subtle'>
+        <>
+            <Form className='m-2 p-2 border border-2 border-dark-subtle'>
                 <Form.Group>
                     <Form.Select onChange={(evento) => manejadorSelector(evento)} defaultValue={categoriaGuardada}>
                         <option value="ultimas noticias">Ultimas noticias</option>
@@ -24,7 +26,11 @@ const GeneradorNoticias = () => {
                         <option value="politica">Politica</option>
                     </Form.Select>
                 </Form.Group>
-        </Form>
+            </Form>
+            <ListaNoticias propCategoria={categoria}/>
+        </>
+
+
     )
 
 }
