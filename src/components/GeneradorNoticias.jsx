@@ -1,16 +1,34 @@
+import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
+
 const GeneradorNoticias = () => {
+
+    let categoriaGuardada = JSON.parse(localStorage.getItem("categoriaElegida")) || "ultimas noticias";
+
+    const [categoria, setCategoria] = useState(categoriaGuardada); 
+
+    useEffect(() => {
+        localStorage.setItem("categoriaElegida", JSON.stringify(categoria));
+    }, [categoria])
+
+    const manejadorSelector = (evento) => {
+        setCategoria(evento.target.value)
+        console.log(categoria)
+    }
     return(
-        <Form className='m-2 p-2 border border-2 border-dark-subtle' onChange={manejadorSelector}>
-            <Form.Group className="mb-3">
-                <Form.Label>Categoria de noticias</Form.Label>
-                <Form.Select>
-                    <option>Seleccionar categoria de noticias</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </Form.Select>
-            </Form.Group>
+        <Form className='m-2 p-2 border border-2 border-dark-subtle'>
+
+                <Form.Group>
+                    
+
+                    <Form.Select onChange={(evento) => manejadorSelector(evento)}>
+                        <option value="ultimas noticias">Ultimas noticias</option>
+                        <option value="ciencia">Ciencia</option>
+                        <option value="deportes">Deportes</option>
+                        <option value="politica">Politica</option>
+                    </Form.Select>
+                </Form.Group>
+
         </Form>
     )
 
