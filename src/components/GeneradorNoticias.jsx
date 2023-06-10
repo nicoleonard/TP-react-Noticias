@@ -13,22 +13,17 @@ const GeneradorNoticias = () => {
 
     const manejadorSelector = (evento) => {
         setCategoria(evento.target.value)
-        console.log(categoria)
     }
     return(
         <Form className='m-2 p-2 border border-2 border-dark-subtle'>
-
                 <Form.Group>
-                    
-
-                    <Form.Select onChange={(evento) => manejadorSelector(evento)}>
+                    <Form.Select onChange={(evento) => manejadorSelector(evento)} defaultValue={categoriaGuardada}>
                         <option value="ultimas noticias">Ultimas noticias</option>
                         <option value="ciencia">Ciencia</option>
                         <option value="deportes">Deportes</option>
                         <option value="politica">Politica</option>
                     </Form.Select>
                 </Form.Group>
-
         </Form>
     )
 
