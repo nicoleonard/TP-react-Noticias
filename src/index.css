@@ -28,6 +28,10 @@ main {
   flex-grow: 1;
 }
 
+.card{
+  max-height: 50vh;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
