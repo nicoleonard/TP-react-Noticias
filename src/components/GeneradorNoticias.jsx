@@ -4,7 +4,7 @@ import ListaNoticias from './ListaNoticias';
 
 const GeneradorNoticias = () => {
 
-    let categoriaGuardada = JSON.parse(localStorage.getItem("categoriaElegida")) || "ultimas noticias";
+    let categoriaGuardada = JSON.parse(localStorage.getItem("categoriaElegida")) || "top";
 
     const [categoria, setCategoria] = useState(categoriaGuardada); 
     const [noticias, setNoticias] = useState([]);
