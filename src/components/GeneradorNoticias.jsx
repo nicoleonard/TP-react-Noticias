@@ -4,7 +4,7 @@ import ListaNoticias from './ListaNoticias';
 
 const GeneradorNoticias = () => {
 
-    let categoriaGuardada = JSON.parse(localStorage.getItem("categoriaElegida")) || "ultimas noticias";
+    let categoriaGuardada = JSON.parse(localStorage.getItem("categoriaElegida")) || "top";
 
     const [categoria, setCategoria] = useState(categoriaGuardada); 
     const [noticias, setNoticias] = useState([]);
@@ -21,12 +21,13 @@ const GeneradorNoticias = () => {
 
     const consultarNoticias = async (categoria) =>{
         try{
-            const respuesta = await fetch (`https://newsdata.io/api/1/news?apikey=pub_24276a6d001c4c2d36427a7685dbaf9188b90&language=es&category=${categoria}`)
-            const datos = await respuesta.json()
+            const respuesta = await fetch (`https://newsdata.io/api/1/news?apikey=pub_24276a6d001c4c2d36427a7685dbaf9188b90&language=es&category=${categoria}`);
+            const datos = await respuesta.json();
             setNoticias(datos)
         }catch(error){
             console.log(error)
         }
+
 
     }
 
